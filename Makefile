@@ -122,7 +122,7 @@ endif
 
 CC       := $(CLANGPATH)clang
 
-CFLAGS   += -Oz -Wno-format-invalid-specifier -Wno-format-extra-args
+CFLAGS   += -Oz
 
 AS     := $(GCCPATH)arm-none-eabi-gcc
 

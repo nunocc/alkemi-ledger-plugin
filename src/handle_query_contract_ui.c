@@ -124,7 +124,7 @@ static void set_second_param_ui(ethQueryContractUI_t *msg, context_t *context) {
     }
 }
 
-static bool is_max_amount(uint8_t *buffer, uint32_t buffer_size) {
+static bool is_max_amount(const uint8_t *buffer, uint32_t buffer_size) {
     for (uint32_t i = 0; i < buffer_size; ++i) {
         if (buffer[i] != UINT8_MAX) {
             return false;
