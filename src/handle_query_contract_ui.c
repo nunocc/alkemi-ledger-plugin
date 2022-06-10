@@ -101,6 +101,15 @@ static void set_fifth_param_ui(ethQueryContractUI_t *msg, context_t *context) {
     }
 }
 
+static bool is_max_amount(uint8_t *buffer, uint32_t buffer_size) {
+    for (uint32_t i = 0; i < buffer_size; ++i) {
+        if (buffer[i] != UINT8_MAX) {
+            return false;
+        }
+    }
+    return true;
+}
+
 static void set_second_param_ui(ethQueryContractUI_t *msg, context_t *context) {
     switch (context->selectorIndex) {
         case ALKEMI_SUPPLY:
@@ -112,25 +121,21 @@ static void set_second_param_ui(ethQueryContractUI_t *msg, context_t *context) {
             break;
         case ALKEMI_LIQUIDATE_BORROW:
             strlcpy(msg->title, "Amount.", msg->titleLength);
-            amountToString(context->amount,
-                           sizeof(context->amount),
-                           context->decimals,
-                           context->ticker,
-                           msg->msg,
-                           msg->msgLength);
+            if (is_max_amount(context->amount, sizeof(context->amount))) {
+                strlcpy(msg->msg, context->ticker, msg->msgLength);
+                strncat(msg->msg, " Max", msg->msgLength);
+            } else {
+                amountToString(context->amount,
+                               sizeof(context->amount),
+                               context->decimals,
+                               context->ticker,
+                               msg->msg,
+                               msg->msgLength);
+            }
             break;
         default:
             break;
     }
-}
-
-static bool is_max_amount(const uint8_t *buffer, uint32_t buffer_size) {
-    for (uint32_t i = 0; i < buffer_size; ++i) {
-        if (buffer[i] != UINT8_MAX) {
-            return false;
-        }
-    }
-    return true;
 }
 
 static void set_first_param_ui(ethQueryContractUI_t *msg, context_t *context) {
