@@ -1,12 +1,13 @@
 name: Code style check
 
 on:
+  workflow_dispatch:
   push:
     branches:
-    - main
+      - main
+      - master
+      - develop
   pull_request:
-    branches:
-    - main
 
 jobs:
   job_lint:
@@ -15,7 +16,7 @@ jobs:
 
     steps:
       - name: Clone
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Lint
         uses: DoozyX/clang-format-lint-action@v0.11
