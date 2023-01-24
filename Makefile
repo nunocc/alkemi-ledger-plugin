@@ -34,7 +34,7 @@ APP_LOAD_PARAMS += $(COMMON_LOAD_PARAMS)
 
 APPVERSION_M     = 1
 APPVERSION_N     = 0
-APPVERSION_P     = 1
+APPVERSION_P     = 2
 APPVERSION       = "$(APPVERSION_M).$(APPVERSION_N).$(APPVERSION_P)"
 
 # EDIT THIS: Change the name of the gif, and generate you own GIFs!
