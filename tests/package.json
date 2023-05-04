@@ -13,7 +13,7 @@
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@ledgerhq/hw-app-eth": "^6.18.0",
-    "@zondax/zemu": "0.30.0",
+    "@zondax/zemu": "^0.32.0",
     "core-js": "^3.7.0",
     "ethers": "^5.4.7",
     "expect": "^27.5.1",
