@@ -1,10 +1,7 @@
 #include "alkemi_plugin.h"
 
 // Called once to init.
-void handle_init_contract(void *parameters) {
-    // Cast the msg to the type of structure we expect (here, ethPluginInitContract_t).
-    ethPluginInitContract_t *msg = (ethPluginInitContract_t *) parameters;
-
+void handle_init_contract(ethPluginInitContract_t *msg) {
     // Make sure we are running a compatible version.
     if (msg->interfaceVersion != ETH_PLUGIN_INTERFACE_VERSION_LATEST) {
         // If not the case, return the `UNAVAILABLE` status.

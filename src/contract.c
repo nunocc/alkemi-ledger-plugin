@@ -1,3 +1,4 @@
+#include <stdint.h>
 #include "alkemi_plugin.h"
 
 // List of selectors supported by this plugin.
