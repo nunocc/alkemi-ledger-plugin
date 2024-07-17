@@ -21,7 +21,6 @@ bool set_asset_address_ui(ethQueryContractUI_t *msg, context_t *context) {
             msg->msg[1] = 'x';
             ret = getEthAddressStringFromBinary(context->asset,
                                                 msg->msg + 2,
-                                                msg->pluginSharedRW->sha3,
                                                 chainid);
             break;
         default:
@@ -44,7 +43,6 @@ bool set_holder_address_ui(ethQueryContractUI_t *msg, context_t *context) {
             msg->msg[1] = 'x';
             ret = getEthAddressStringFromBinary(context->holder,
                                                 msg->msg + 2,
-                                                msg->pluginSharedRW->sha3,
                                                 chainid);
             break;
         default:
@@ -66,7 +64,6 @@ bool set_address_collateral_ui(ethQueryContractUI_t *msg, context_t *context) {
             msg->msg[1] = 'x';
             ret = getEthAddressStringFromBinary(context->assetCollateral,
                                                 msg->msg + 2,
-                                                msg->pluginSharedRW->sha3,
                                                 chainid);
             break;
         default:
